@@ -342,6 +342,7 @@
             label4.Size = new Size(78, 20);
             label4.TabIndex = 10;
             label4.Text = "Customers";
+            label4.Click += label4_Click;
             // 
             // pictureBox3
             // 
@@ -362,6 +363,7 @@
             label3.Size = new Size(80, 20);
             label3.TabIndex = 8;
             label3.Text = "Categories";
+            label3.Click += label3_Click;
             // 
             // pictureBox2
             // 

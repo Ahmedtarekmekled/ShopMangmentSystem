@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Categoryies));
             label14 = new Label();
             dataGridView1 = new DataGridView();
             label12 = new Label();
             textBox2 = new TextBox();
-            button4 = new Button();
-            button3 = new Button();
-            button2 = new Button();
+            delete = new Button();
+            add = new Button();
+            edit = new Button();
             label8 = new Label();
             textBox1 = new TextBox();
             panel3 = new Panel();
@@ -83,18 +84,32 @@
             // 
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridView1.BackgroundColor = Color.White;
+            dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(252, 239);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridView1.Size = new Size(939, 342);
             dataGridView1.TabIndex = 53;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(1111, 62);
+            label12.Location = new Point(978, 62);
             label12.Name = "label12";
             label12.Size = new Size(27, 20);
             label12.TabIndex = 52;
@@ -103,49 +118,52 @@
             // textBox2
             // 
             textBox2.Enabled = false;
-            textBox2.Location = new Point(1144, 59);
+            textBox2.Location = new Point(1011, 59);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(96, 27);
+            textBox2.Size = new Size(229, 27);
             textBox2.TabIndex = 51;
             // 
-            // button4
+            // delete
             // 
-            button4.BackColor = Color.Crimson;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = FlatStyle.Flat;
-            button4.ForeColor = Color.White;
-            button4.Location = new Point(807, 185);
-            button4.Name = "button4";
-            button4.Size = new Size(157, 48);
-            button4.TabIndex = 50;
-            button4.Text = "DELETE";
-            button4.UseVisualStyleBackColor = false;
+            delete.BackColor = Color.Crimson;
+            delete.FlatAppearance.BorderSize = 0;
+            delete.FlatStyle = FlatStyle.Flat;
+            delete.ForeColor = Color.White;
+            delete.Location = new Point(807, 185);
+            delete.Name = "delete";
+            delete.Size = new Size(157, 48);
+            delete.TabIndex = 50;
+            delete.Text = "DELETE";
+            delete.UseVisualStyleBackColor = false;
+            delete.Click += delete_Click;
             // 
-            // button3
+            // add
             // 
-            button3.BackColor = Color.Orange;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.ForeColor = Color.White;
-            button3.Location = new Point(651, 185);
-            button3.Name = "button3";
-            button3.Size = new Size(157, 48);
-            button3.TabIndex = 49;
-            button3.Text = "ADD ITEM";
-            button3.UseVisualStyleBackColor = false;
+            add.BackColor = Color.Orange;
+            add.FlatAppearance.BorderSize = 0;
+            add.FlatStyle = FlatStyle.Flat;
+            add.ForeColor = Color.White;
+            add.Location = new Point(651, 185);
+            add.Name = "add";
+            add.Size = new Size(157, 48);
+            add.TabIndex = 49;
+            add.Text = "ADD CATEGOREY";
+            add.UseVisualStyleBackColor = false;
+            add.Click += button3_Click;
             // 
-            // button2
+            // edit
             // 
-            button2.BackColor = Color.DeepSkyBlue;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.ForeColor = Color.White;
-            button2.Location = new Point(494, 185);
-            button2.Name = "button2";
-            button2.Size = new Size(157, 48);
-            button2.TabIndex = 48;
-            button2.Text = "EDIT";
-            button2.UseVisualStyleBackColor = false;
+            edit.BackColor = Color.DeepSkyBlue;
+            edit.FlatAppearance.BorderSize = 0;
+            edit.FlatStyle = FlatStyle.Flat;
+            edit.ForeColor = Color.White;
+            edit.Location = new Point(494, 185);
+            edit.Name = "edit";
+            edit.Size = new Size(157, 48);
+            edit.TabIndex = 48;
+            edit.Text = "EDIT";
+            edit.UseVisualStyleBackColor = false;
+            edit.Click += button2_Click;
             // 
             // label8
             // 
@@ -184,6 +202,7 @@
             label13.Size = new Size(28, 32);
             label13.TabIndex = 20;
             label13.Text = "X";
+            label13.Click += label13_Click;
             // 
             // label7
             // 
@@ -286,6 +305,7 @@
             label4.Size = new Size(78, 20);
             label4.TabIndex = 10;
             label4.Text = "Customers";
+            label4.Click += label4_Click;
             // 
             // pictureBox3
             // 
@@ -326,6 +346,7 @@
             label1.Size = new Size(45, 20);
             label1.TabIndex = 6;
             label1.Text = "Items";
+            label1.Click += label1_Click;
             // 
             // panel2
             // 
@@ -367,15 +388,16 @@
             Controls.Add(dataGridView1);
             Controls.Add(label12);
             Controls.Add(textBox2);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(delete);
+            Controls.Add(add);
+            Controls.Add(edit);
             Controls.Add(label8);
             Controls.Add(textBox1);
             Controls.Add(panel3);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Categoryies";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Categoryies";
             Load += Categoryies_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -402,9 +424,9 @@
         private DataGridView dataGridView1;
         private Label label12;
         private TextBox textBox2;
-        private Button button4;
-        private Button button3;
-        private Button button2;
+        private Button delete;
+        private Button add;
+        private Button edit;
         private Label label8;
         private TextBox textBox1;
         private Panel panel3;

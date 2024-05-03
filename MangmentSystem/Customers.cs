@@ -16,5 +16,17 @@ namespace MangmentSystem
         {
             InitializeComponent();
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Categoryies category = new Categoryies();
+            category.Show();
+            this.Hide();
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
